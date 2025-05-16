@@ -1,13 +1,15 @@
 header {
   // height: 50px;
   display: flex;
-  padding: 10px 0;
+
   align-items: center;
   .header--content {
     display: flex;
     align-items: center;
+    padding: 10px 0;
     width: 100%;
     justify-content: end;
+    border-bottom: 1px solid var(--accent-color);
     .header--element {
       display: flex;
       align-items: center;
