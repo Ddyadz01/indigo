@@ -1,10 +1,13 @@
 .react-calendar {
   width: 339px;
   max-width: 339px;
+  max-height: 410px;
+  height: 410px;
   background: var(--background-white-color);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.125em;
   border: none;
+  overflow: hidden;
   padding: 20px;
 }
 
@@ -29,10 +32,16 @@
 .react-calendar__month-view__weekdays__weekday {
   text-align: center;
   padding: 10px 0;
-  background-color: var(--accent-color);
+  background: #267afc;
+  background: linear-gradient(
+    180deg,
+    rgba(38, 122, 252, 1) 0%,
+    rgba(38, 122, 252, 0.37) 49%,
+    rgba(255, 255, 255, 0) 100%
+  );
   border-radius: 10px;
   margin: 0 4px;
-  height: 60px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,10 +51,16 @@
   }
 }
 
+button.react-calendar__tile--active.react-calendar__month-view__days__day--weekend {
+  background-color: red !important;
+  border: 1px solid red;
+}
+
 /* Убираем подчеркивание у аббревиатур */
 abbr {
   text-decoration: none;
   text-transform: uppercase;
+  font-size: 14px;
   font-weight: bold;
   color: rgb(39, 39, 39);
 }
@@ -62,7 +77,7 @@ abbr {
   margin: 0 !important;
   width: auto !important;
   max-width: none !important;
-  height: 70px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,7 +108,13 @@ button.react-calendar__month-view__days__day--weekend {
 
 /* Стили для названий выходных дней */
 .react-calendar__month-view__weekdays__weekday:nth-last-child(-n + 2) {
-  background-color: red;
+  background: #ff0000;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 15, 15, 0.37) 49%,
+    rgba(255, 255, 255, 0) 100%
+  );
   abbr {
     color: rgb(255, 255, 255);
   }

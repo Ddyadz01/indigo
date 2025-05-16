@@ -4,9 +4,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 18px;
+  padding: 10px 5px;
   transition: 0.3s;
   font-weight: bold;
+  svg {
+    margin: 0 5px;
+  }
 }
 
 button.primary {
