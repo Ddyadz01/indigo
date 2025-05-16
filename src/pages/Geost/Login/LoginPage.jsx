@@ -1,4 +1,4 @@
-import { CenterContent } from '../../components/Index'
+import { CenterContent } from '../../../components/Index'
 
 import { LoginPageForm } from './LoginPageForm'
 import { LoginPagePreview } from './LoginPagePreview'

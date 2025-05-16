@@ -1,5 +1,5 @@
 import { Lock, Phone } from 'lucide-react'
-import { Button } from '../../components/Index'
+import { Button } from '../../../components/Index'
 import styles from './login.module.scss'
 
 export const LoginPageForm = () => {

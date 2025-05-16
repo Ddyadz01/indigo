@@ -1,10 +1,17 @@
 import { Route, Routes } from 'react-router-dom'
-import { LoginPage } from './pages/Index'
+import { Home, LoginPage } from './pages/Index'
 
 function App() {
+  const auth = false
   return (
     <Routes>
-      <Route path="/login" element={<LoginPage />} />
+      {auth ? (
+        <>
+          <Route path="/" element={<Home />} />
+        </>
+      ) : (
+        <Route path="/" element={<LoginPage />} />
+      )}
     </Routes>
   )
 }
