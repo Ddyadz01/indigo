@@ -1,0 +1,39 @@
+.calendar--page {
+  background: var(--background-white-color);
+  width: calc(100% - 297px - 30px);
+  padding: 20px;
+  border-radius: 12px;
+  .calendar--component {
+    border: 1px dashed var(--accent-color);
+    width: 390px;
+    padding: 26px;
+    border-radius: 12px;
+  }
+  /* Стили для контейнера месяцев */
+  .calendar--months {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 15px;
+  }
+
+  /* Стили для отдельного месяца */
+  .calendar--month {
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: #333;
+
+    &:hover {
+      background-color: rgba(38, 122, 252, 0.1);
+    }
+
+    /* Стили для активного месяца */
+    &.active {
+      background-color: rgb(38, 122, 252);
+      color: white;
+    }
+  }
+}

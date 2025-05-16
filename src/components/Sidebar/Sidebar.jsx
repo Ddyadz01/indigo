@@ -43,7 +43,9 @@ export const Sidebar = () => {
                 }
               >
                 {link.links.map((linkChild) => (
-                  <Link key={linkChild.id}>{linkChild.title}</Link>
+                  <Link to={linkChild?.href} key={linkChild.id}>
+                    {linkChild.title}
+                  </Link>
                 ))}
               </div>
             </li>

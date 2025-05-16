@@ -35,6 +35,7 @@ export const MENU = [
       {
         id: 1,
         title: 'События',
+        href: '/calendar',
       },
     ],
   },

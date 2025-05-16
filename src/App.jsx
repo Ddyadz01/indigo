@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { Home, LoginPage } from './pages/Index'
+import { CalendarPage, Home, LoginPage } from './pages/Index'
 import { CenterContent, Header, Sidebar } from './components/Index'
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
             <Sidebar />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/calendar" element={<CalendarPage />} />
             </Routes>
           </div>
         ) : (
