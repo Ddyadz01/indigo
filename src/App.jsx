@@ -1,10 +1,11 @@
-
+import { Route, Routes } from 'react-router-dom'
+import { LoginPage } from './pages/Index'
 
 function App() {
-
-
   return (
-   <div>Test</div>
+    <Routes>
+      <Route path="/login" element={<LoginPage />} />
+    </Routes>
   )
 }
 
