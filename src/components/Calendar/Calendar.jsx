@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 import style from '../../pages/Auth/Calendar/calendar.module.scss'
 import './calendar.scss'
 import Calendar from 'react-calendar'
-export const CalendarComponent = () => {
-  const [value, setValue] = useState(new Date())
+export const CalendarComponent = ({ date, setDate }) => {
   const [months, setMonths] = useState([])
   const [activeMonthIndex, setActiveMonthIndex] = useState(1) // По умолчанию текущий месяц (индекс 1)
   const [calendarDate, setCalendarDate] = useState(new Date()) // Отдельное состояние для календаря
@@ -68,8 +67,8 @@ export const CalendarComponent = () => {
     setCalendarDate(newCalendarDate)
 
     // Если есть выбранная дата, обновляем её месяц и год
-    if (value) {
-      const newDate = new Date(value)
+    if (date) {
+      const newDate = new Date(date)
       newDate.setMonth(targetMonth)
       newDate.setFullYear(targetYear)
 
@@ -79,13 +78,13 @@ export const CalendarComponent = () => {
         newDate.setDate(lastDayOfMonth)
       }
 
-      setValue(newDate)
+      setDate(newDate)
     }
   }
 
   // Обработчик изменения даты в календаре
   const handleDateChange = (newDate) => {
-    setValue(newDate)
+    setDate(newDate)
 
     // Проверяем, изменился ли месяц
     if (
@@ -120,7 +119,7 @@ export const CalendarComponent = () => {
       </div>
       <Calendar
         onChange={handleDateChange}
-        value={value}
+        date={date}
         activeStartDate={calendarDate} // Важно! Устанавливаем активный месяц для отображения
         showNavigation={false}
         formatMonthYear={(locale, date) => {

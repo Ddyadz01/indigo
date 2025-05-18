@@ -14,47 +14,48 @@ export const CalendarPage = () => {
     type: '',
     status: '',
   })
+  const [date, setDate] = useState(new Date())
+
+  const [data, setData] = useState([])
 
   useEffect(() => {
-    console.log(value)
-  }, [value])
+    setValue((prev) => ({
+      ...prev,
+      date: date,
+    }))
+  }, [date])
   return (
     <div className={style['calendar--page']}>
       <PageTitle icon={Calendar} text={'Календарь событий'} />
       <div className={style['calendar--page_wrapper']}>
-        <CalendarComponent />
+        <CalendarComponent date={date} setDate={setDate} />
         <div className={style['calendar--page_points']}>
           <div className={style['calendar--page_events']}>
             <table>
               <thead>
                 <tr>
+                  <th scope="col">Дата</th>
                   <th scope="col">Время начала</th>
-                  <th scope="col">Длительность (мин.)</th>
+                  <th scope="col">Время окончания</th>
                   <th scope="col">Тип</th>
                   <th scope="col">Важность</th>
                   <th scope="col">Название</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>10:30</td>
-                  <td>40</td>
-                  <td></td>
-                  <td className={style['circle--column']}>
-                    <span></span>
-                    Средний
-                  </td>
-                  <td>Прививка. Привести детей для...</td>
-                </tr>
-                <tr>
-                  <td>10:30</td>
-                  <td>40</td>
-                  <td></td>
-                  <td className={style['circle--column']}>
-                    <span></span>Средний
-                  </td>
-                  <td>Прививка. Привести детей для...</td>
-                </tr>
+                {data.map((event) => (
+                  <tr>
+                    <td>{`${event.date.toLocaleDateString()}`}</td>
+                    <td>{event.timeStart}</td>
+                    <td>{event.timeEnd}</td>
+                    <td>{event.type}</td>
+                    <td className={style['circle--column']}>
+                      <span></span>
+                      {event.status}
+                    </td>
+                    <td>{event.titleEvent + '. ' + event.description}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -154,7 +155,7 @@ export const CalendarPage = () => {
       </div>
 
       <div className={style['calendar--page_buttons']}>
-        <Button width="200" variant="primary">
+        <Button width="200" variant="primary" clickFn={() => setData((prev) => [...prev, value])}>
           <PlusCircle /> Создать событие
         </Button>
       </div>

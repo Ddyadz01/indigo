@@ -23,7 +23,7 @@ export const Select = ({ array, setValue, value, nameSelect, placeholder }) => {
         {array.map((arr) => (
           <div
             className={
-              value.id == arr.id
+              value[nameSelect] == arr.value
                 ? style['select--option'] + ` ` + style['active']
                 : style['select--option']
             }
