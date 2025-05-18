@@ -40,4 +40,86 @@
   .calendar--page_buttons {
     margin-top: 20px;
   }
+  .calendar--page_wrapper {
+    display: flex;
+    justify-content: space-between;
+    .calendar--page_points {
+      width: 70%;
+      .calendar--page_events {
+        border: 1px dashed var(--accent-color);
+        border-radius: 12px;
+        padding: 10px;
+
+        table {
+          border-spacing: 0px;
+          border-collapse: collapse;
+
+          thead {
+            tr {
+              border: none;
+              th {
+                padding: 10px 20px;
+                text-align: left;
+                color: var(--accent-color);
+                font-weight: 400;
+              }
+            }
+          }
+          tbody {
+            tr {
+              transition: 0.3s;
+              border: none;
+
+              overflow: hidden;
+              border-radius: 12px;
+              &:hover {
+                background-color: rgba(38, 122, 252, 0.1);
+                // color: var(--white-text-color);
+                cursor: pointer;
+              }
+              td {
+                // display: flex;
+                padding: 10px 20px;
+                border: none;
+                text-align: left;
+                &.circle--column {
+                  display: flex;
+                  align-items: center;
+                }
+                span {
+                  width: 10px;
+                  height: 10px;
+                  margin-right: 10px;
+                  background-color: var(--accent-color);
+                  display: block;
+                  border-radius: 50%;
+                }
+              }
+            }
+          }
+        }
+      }
+      .calendar--page_form {
+        border: 1px dashed var(--accent-color);
+        padding: 10px;
+        border-radius: 12px;
+        margin-top: 20px;
+        .calendar--page_line {
+          margin: 20px 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .calendar--page_label {
+            p {
+              margin-bottom: 10px;
+              color: var(--accent-color);
+            }
+            &.end {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
 }
