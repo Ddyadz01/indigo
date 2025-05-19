@@ -1,8 +1,8 @@
 import style from './input.module.scss'
 
-export const Input = ({ type, placeholder, element = 'input', value, setValue, name }) => {
+export const Input = ({ type, placeholder, element = 'input', setEvents, events, name }) => {
   const handleClickSelect = (newValue) => {
-    setValue((prev) => ({
+    setEvents((prev) => ({
       ...prev,
       [name]: newValue,
     }))
@@ -10,8 +10,7 @@ export const Input = ({ type, placeholder, element = 'input', value, setValue, n
   if (element == 'input')
     return (
       <input
-        value={value[name]}
-        setValue={setValue}
+        value={events[name]}
         type={type}
         placeholder={placeholder}
         onChange={(e) => handleClickSelect(e.target.value)}
@@ -19,8 +18,7 @@ export const Input = ({ type, placeholder, element = 'input', value, setValue, n
     )
   return (
     <textarea
-      value={value[name]}
-      setValue={setValue}
+      value={events[name]}
       type={type}
       placeholder={placeholder}
       onChange={(e) => handleClickSelect(e.target.value)}

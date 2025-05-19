@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import style from './select.module.scss'
 
-export const Select = ({ array, setValue, value, nameSelect, placeholder }) => {
+export const Select = ({ array, setEvents, events, nameSelect, placeholder }) => {
   const [isShow, setShow] = useState(false)
 
   const handleClickSelect = (newValue) => {
-    setValue((prev) => ({
+    setEvents((prev) => ({
       ...prev,
       [nameSelect]: newValue,
     }))
@@ -13,9 +13,9 @@ export const Select = ({ array, setValue, value, nameSelect, placeholder }) => {
 
   return (
     <div className={style['select']} onClick={() => setShow(!isShow)}>
-      {value[nameSelect] || placeholder}
+      {events[nameSelect] || placeholder}
       <div
-        style={isShow ? { height: array.length * 40 + 'px' } : {}}
+        // style={isShow ? { height: array.length * 40 + 'px' } : {}}
         className={
           isShow ? style['select--options'] + ` ` + style['active'] : style['select--options']
         }
@@ -23,7 +23,7 @@ export const Select = ({ array, setValue, value, nameSelect, placeholder }) => {
         {array.map((arr) => (
           <div
             className={
-              value[nameSelect] == arr.value
+              events[nameSelect] == arr.value
                 ? style['select--option'] + ` ` + style['active']
                 : style['select--option']
             }

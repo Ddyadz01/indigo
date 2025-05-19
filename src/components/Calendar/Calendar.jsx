@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import style from '../../pages/Auth/Calendar/calendar.module.scss'
+import style from '../../pages/Auth/Events/calendar.module.scss'
 import './calendar.scss'
 import Calendar from 'react-calendar'
 export const CalendarComponent = ({ date, setDate }) => {
