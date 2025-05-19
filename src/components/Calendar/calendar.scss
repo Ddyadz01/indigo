@@ -32,7 +32,7 @@
 .react-calendar__month-view__weekdays__weekday {
   text-align: center;
   padding: 10px 0;
-  background: #267afc;
+  background: var(--accent-color);
   background: linear-gradient(
     180deg,
     rgba(38, 122, 252, 1) 0%,
@@ -52,8 +52,8 @@
 }
 
 button.react-calendar__tile--active.react-calendar__month-view__days__day--weekend {
-  background-color: red !important;
-  border: 1px solid red;
+  background-color: var(--red-color) !important;
+  border: 1px solid var(--red-color);
 }
 
 /* Убираем подчеркивание у аббревиатур */
@@ -62,7 +62,7 @@ abbr {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: bold;
-  color: rgb(39, 39, 39);
+  color: var(--blcack-text-color);
 }
 
 /* Контейнер для всех дней */
@@ -85,7 +85,7 @@ abbr {
   background: none;
   font-weight: bold;
   font-size: 16px;
-  color: rgb(39, 39, 39);
+  color: var(--black-text-color);
   position: relative;
 }
 
@@ -98,17 +98,17 @@ button.react-calendar__month-view__days__day--neighboringMonth {
 
 /* Стили для выходных дней */
 button.react-calendar__month-view__days__day--weekend {
-  border: 1px solid rgba(255, 76, 72, 0.1);
+  border: 1px solid var(--red-border-color);
   border-radius: 12px;
 
   abbr {
-    color: red;
+    color: var(--red-color);
   }
 }
 
 /* Стили для названий выходных дней */
 .react-calendar__month-view__weekdays__weekday:nth-last-child(-n + 2) {
-  background: #ff0000;
+  background: var(--red-color);
   background: linear-gradient(
     180deg,
     rgba(255, 0, 0, 1) 0%,
@@ -116,28 +116,28 @@ button.react-calendar__month-view__days__day--weekend {
     rgba(255, 255, 255, 0) 100%
   );
   abbr {
-    color: rgb(255, 255, 255);
+    color: var(--white-text-color);
   }
 }
 
 /* Стили для активного дня */
 button.react-calendar__tile--active {
-  border: 1px solid rgb(38, 122, 252);
+  border: 1px solid var(--accent-color);
   border-radius: 10px;
-  background: rgb(38, 122, 252);
+  background: var(--accent-color);
   abbr {
-    color: white;
+    color: var(--white-text-color);
   }
 }
 
 /* Стили для сегодняшнего дня */
 button.react-calendar__tile--now {
-  border: 1px dashed rgb(38, 122, 252);
+  border: 1px dashed var(--accent-color);
   border-radius: 10px;
 }
 
 button.react-calendar__tile--now.react-calendar__month-view__days__day.react-calendar__month-view__days__day--weekend {
-  border: 1px dashed red;
+  border: 1px dashed var(--red-color);
 }
 
 /* Дополнительные стили для кастомного календаря */

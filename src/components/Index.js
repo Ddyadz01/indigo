@@ -10,3 +10,4 @@ export { Input } from './Input/Input'
 export { Select } from './Select/Select'
 
 export { PageTitle } from './PageTitle/PageTitle'
+export { Modal } from './Modal/Modal'

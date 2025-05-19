@@ -25,16 +25,16 @@
     cursor: pointer;
     font-weight: 500;
     transition: all 0.3s ease;
-    color: #333;
+    color: var(--black-text-color);
 
     &:hover {
-      background-color: rgba(38, 122, 252, 0.1);
+      background-color: var(--hover-select-bg);
     }
 
     /* Стили для активного месяца */
     &.active {
-      background-color: rgb(38, 122, 252);
-      color: white;
+      background-color: var(--accent-color);
+      color: var(--white-text-color);
     }
   }
   .calendar--page_buttons {
@@ -73,7 +73,7 @@
               overflow: hidden;
               border-radius: 12px;
               &:hover {
-                background-color: rgba(38, 122, 252, 0.1);
+                background-color: var(--hover-select-bg);
                 // color: var(--white-text-color);
                 cursor: pointer;
               }
@@ -82,6 +82,12 @@
                 padding: 10px 20px;
                 border: none;
                 text-align: left;
+                p {
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  width: 250px;
+                }
                 &.circle--column {
                   display: flex;
                   align-items: center;

@@ -1,7 +1,7 @@
 import style from './calendar.module.scss'
 import { INDICATORS_COLOR } from './constants'
 
-export const EventsTable = ({ data }) => {
+export const EventsTable = ({ data, setShowModal }) => {
   return (
     <div className={style['calendar--page_events']}>
       <table>
@@ -17,7 +17,7 @@ export const EventsTable = ({ data }) => {
         </thead>
         <tbody>
           {data.map((event) => (
-            <tr>
+            <tr onClick={() => setShowModal((prev) => !prev)}>
               <td>{`${event.date.toLocaleDateString()}`}</td>
               <td>{event.timeStart}</td>
               <td>{event.timeEnd}</td>
@@ -26,7 +26,9 @@ export const EventsTable = ({ data }) => {
                 <span style={{ backgroundColor: INDICATORS_COLOR[event.status] }}></span>
                 {event.status}
               </td>
-              <td>{event.titleEvent + '. ' + event.description}</td>
+              <td>
+                <p>{event.titleEvent + '. ' + event.description}</p>
+              </td>
             </tr>
           ))}
         </tbody>

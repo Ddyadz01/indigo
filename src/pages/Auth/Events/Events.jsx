@@ -1,8 +1,9 @@
-import { Button, CalendarComponent, PageTitle } from '../../../components/Index'
+import { useEffect, useState } from 'react'
+
+import { Button, CalendarComponent, Modal, PageTitle } from '../../../components/Index'
 
 import { Calendar, PlusCircle } from 'lucide-react'
 
-import { useEffect, useState } from 'react'
 import { EventsTable } from './EventsTable'
 import { EventsForm } from './EventsForm'
 
@@ -21,6 +22,7 @@ export const Events = () => {
     status: '',
     indicator: '',
   })
+  const [isShowModal, setShowModal] = useState(false)
 
   useEffect(() => {
     setEvents((prev) => ({
@@ -30,21 +32,32 @@ export const Events = () => {
   }, [date])
 
   return (
-    <div className={style['calendar--page']}>
-      <PageTitle icon={Calendar} text={'Календарь событий'} />
-      <div className={style['calendar--page_wrapper']}>
-        <CalendarComponent date={date} setDate={setDate} />
-        <div className={style['calendar--page_points']}>
-          <EventsTable data={data} />
-          <EventsForm events={events} setEvents={setEvents} />
+    <>
+      <div className={style['calendar--page']}>
+        <PageTitle border={true} icon={Calendar} text={'Календарь событий'} />
+        <div className={style['calendar--page_wrapper']}>
+          <CalendarComponent date={date} setDate={setDate} />
+          <div className={style['calendar--page_points']}>
+            <EventsTable data={data} setShowModal={setShowModal} />
+            <EventsForm events={events} setEvents={setEvents} />
+          </div>
+        </div>
+
+        <div className={style['calendar--page_buttons']}>
+          <Button
+            width="200"
+            variant="primary"
+            clickFn={() => setData((prev) => [...prev, events])}
+          >
+            <PlusCircle /> Создать событие
+          </Button>
         </div>
       </div>
-
-      <div className={style['calendar--page_buttons']}>
-        <Button width="200" variant="primary" clickFn={() => setData((prev) => [...prev, events])}>
-          <PlusCircle /> Создать событие
-        </Button>
-      </div>
-    </div>
+      {isShowModal && (
+        <Modal title={'Событие'} setShowModal={setShowModal}>
+          Какой-то контнет
+        </Modal>
+      )}
+    </>
   )
 }

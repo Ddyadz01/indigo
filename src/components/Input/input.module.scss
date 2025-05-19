@@ -11,6 +11,9 @@ textarea {
   max-width: 100%;
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
+  &::placeholder {
+    color: var(--accent-color);
+  }
 }
 
 textarea:focus-visible {

@@ -11,7 +11,7 @@ export const EventsForm = ({ setEvents, events }) => {
           <Select
             setEvents={setEvents}
             events={events}
-            placeholder={'Выберите время'}
+            placeholder={'Выбрать'}
             nameSelect={'timeStart'}
             array={[
               { id: 1, value: '10:30' },
@@ -27,7 +27,7 @@ export const EventsForm = ({ setEvents, events }) => {
             setEvents={setEvents}
             events={events}
             nameSelect={'timeEnd'}
-            placeholder={'Выберите время'}
+            placeholder={'Выбрать'}
             array={[
               { id: 1, value: '10:30' },
               { id: 2, value: '12:30' },
@@ -53,7 +53,7 @@ export const EventsForm = ({ setEvents, events }) => {
             setEvents={setEvents}
             events={events}
             nameSelect={'type'}
-            placeholder={'Выбреите тип'}
+            placeholder={'Выбрать'}
             array={TYPE_ARRAY}
           />
         </div>
@@ -63,7 +63,7 @@ export const EventsForm = ({ setEvents, events }) => {
             nameSelect={'status'}
             setEvents={setEvents}
             events={events}
-            placeholder={'Важность'}
+            placeholder={'Выбрать'}
             array={STATUS_ARRAY}
           />
         </div>
